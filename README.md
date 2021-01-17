@@ -17,4 +17,4 @@ Created a project using create-react-app with Typescript template.
 
 You can access this Todo Application in github pages(https://senthuran100.github.io/React-TypeScript/).
 
-!! Hope this will be a simple example to start out using <b>Typescript</b>  in React Application. !!
+!! :smiley:	  Hope this will be a simple example to start using <b>Typescript</b>  in React Application. !!
