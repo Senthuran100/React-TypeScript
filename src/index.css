@@ -6,12 +6,14 @@
 body {
   font-family: Nunito, sans-serif;
   background: #f5f6f7;
+  background-image: url('https://thumbs.dreamstime.com/b/todo-list-seamless-pattern-universal-background-66678083.jpg');
 }
 
 main {
   max-width: 30rem;
   margin: auto;
   padding: 2rem 1rem;
+  
 }
 
 main > h1 {
