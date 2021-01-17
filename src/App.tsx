@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as React from "react"
+import { useSelector, shallowEqual, useDispatch } from "react-redux"
 import './App.css';
+import { Dispatch } from "redux"
+import { addTodo, removeTodo } from "./store/actionCreators"
+import { AddTodo } from "./components/AddTodo"
+import { Todo } from "./components/Todo";
 
-function App() {
+
+const App: React.FC = () =>{
+  const todos:readonly Todo[] = useSelector(
+    (state:todoState) => state.todos,shallowEqual
+  )
+
+  const dispatch: Dispatch<any> = useDispatch()
+
+  const saveTodo = React.useCallback(
+    (todo: Todo) => dispatch(addTodo(todo)),
+    [dispatch]
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <main>
+      <h1 className="header">My Todos</h1>
+      <AddTodo saveTodo={saveTodo} />
+      {todos.map((todo: Todo) => (
+        <Todo
+          key={todo.id}
+          todo={todo}
+          removeTodo={removeTodo}
+        />
+      ))}
+      </main>
+  )
 }
 
 export default App;
