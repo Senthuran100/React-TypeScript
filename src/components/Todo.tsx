@@ -12,7 +12,7 @@ export const Todo: React.FC<Props> = ({todo, removeTodo}) =>{
 
     const deleteTodo = React.useCallback(
         (article: Todo) => dispatch(removeTodo(todo)),
-        [dispatch, removeTodo]
+        [dispatch, removeTodo,todo]
     )
     
     return (
